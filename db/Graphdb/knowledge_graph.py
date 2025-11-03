@@ -2,7 +2,7 @@ from neo4j import GraphDatabase
 
 from py2neo import Graph, Node, Relationship
 import pandas as pd
-graph = Graph("bolt://localhost:7687", auth=("neo4j", "testpassword"))
+graph = Graph("bolt://<server-ip>:7687", auth=("USERNAME", "<YOUR PASSWORD>"))
 print(graph.run("RETURN 1").to_table())
 
 
