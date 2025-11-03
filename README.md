@@ -102,7 +102,14 @@ DB_USERNAME=your_username
 DB_PASSWORD=your_password
 ```
 
+### **3️⃣ Install Dependencies
+```bash
+pip install -r requirements.txt
+```
 
-
+### **4️⃣ Run the System
+```bash
+uvicorn main:app --reload
+```
 
 
