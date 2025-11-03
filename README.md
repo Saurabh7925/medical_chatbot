@@ -80,7 +80,7 @@ The system implements a **multi-agent hybrid retrieval architecture** combining 
 ```bash
 git clone <repository-url>
 cd medical_chatbot
-
+```
 
 ### **2️⃣ Environment Configuration
 
@@ -100,7 +100,7 @@ DB_PORT=5432
 DB_SCHEMA=medical_db
 DB_USERNAME=your_username
 DB_PASSWORD=your_password
-
+```
 
 
 
