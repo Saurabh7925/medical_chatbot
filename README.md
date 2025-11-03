@@ -82,7 +82,7 @@ git clone <repository-url>
 cd medical_chatbot
 ```
 
-### **2️⃣ Environment Configuration
+### 2️⃣ Environment Configuration
 
 ```bash
 # 🔑 LLM / API Keys
@@ -102,12 +102,12 @@ DB_USERNAME=your_username
 DB_PASSWORD=your_password
 ```
 
-### **3️⃣ Install Dependencies
+### 3️⃣ Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### **4️⃣ Run the System
+### 4️⃣ Run the System
 ```bash
 uvicorn main:app --reload
 ```
