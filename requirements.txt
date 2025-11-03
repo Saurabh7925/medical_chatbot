@@ -1,0 +1,16 @@
+openai==2.6.1
+sentence-transformers==5.1.2
+hf-xet==1.2.0
+langchain==1.0.3
+langchain-core==1.0.2
+langgraph==1.0.2
+fastapi==0.120.2
+PyMuPDF==1.26.5
+qdrant_client
+py2neo
+neo4j==6.0.2
+psycopg2==2.9.11
+SQLAlchemy==2.0.44
+pandas
+numpy
+load_dotenv

@@ -1,0 +1,18 @@
+{
+  "dataSources": {
+    "MCP": {
+      "driver": "postgresql",
+      "host": "localhost",
+      "port": 5432,
+      "schema": "mydb",
+      "userName": "myuser",
+      "password": "mypassword"
+    },
+
+    "neo4j": {
+        "uri": "bolt://localhost:7687",
+        "username":"neo4j",
+        "password":"testpassword"
+    }
+  }
+}
