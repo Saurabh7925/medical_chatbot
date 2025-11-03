@@ -80,3 +80,29 @@ The system implements a **multi-agent hybrid retrieval architecture** combining 
 ```bash
 git clone <repository-url>
 cd medical_chatbot
+
+
+### **2️⃣ Environment Configuration
+
+```bash
+# 🔑 LLM / API Keys
+OPENAI_API_KEY=your_api_key_here
+
+# 🧬 Neo4j Database
+NEO4J_URI=bolt://localhost:7687
+NEO4J_USERNAME=neo4j
+NEO4J_PASSWORD=your_password
+
+# 💾 SQL / Metadata Database
+DB_DRIVER=postgresql
+DB_HOST=localhost
+DB_PORT=5432
+DB_SCHEMA=medical_db
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+
+
+
+
+
+
