@@ -87,6 +87,7 @@ cd medical_chatbot
 ```bash
 # 🔑 LLM / API Keys
 OPENAI_API_KEY=your_api_key_here
+MODEL=your_model
 
 # 🧬 Neo4j Database
 NEO4J_URI=bolt://localhost:7687
