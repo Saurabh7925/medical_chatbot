@@ -15,8 +15,6 @@ def query_response(query,session_id,user_id):
     response=build_graph().invoke({
     "query": query,
     "tool": intent_tools,
-    "user_id": user_id,
-    "session_id":session_id,
     "llm": chat_openai() })
 
     print("eeeeeeeewewewewewewweewewew",str(response['intent_result']))

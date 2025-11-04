@@ -10,15 +10,17 @@ import json
 
 @tool(
     name_or_callable="query_knowladge_graph_tool",
-    description="""Generates a Cypher Query Language (CQL) query from a natural language question. 
-                Use this tool when the user wants to retrieve relationships or entities from the Neo4j Knowledge Graph, 
-                such as finding connections between diseases, herbs, and treatments."""
+    description=""" Generates a Cypher Query Language (CQL) query to retrieve structured information 
+    from the Neo4j Knowledge Graph. 
+    Use this tool when the user's query involves **specific Ayurvedic relationships or entities**, 
+    such as herbs, diseases, doshas, treatments, or symptoms. 
+    This includes questions where the user asks for *what, which, or how* type facts 
+    directly related to Ayurvedic knowledge connections."""
 )
-def query_knowladge_graph_tool(query: str, user_id: str,session_id:str) -> str:
+def query_knowladge_graph_tool(query: str) -> str:
 
-    cql_query = retrieval_data_from_kg(query)  # call the separate function
-    response=fetch_from_neo4j(cql_query)
-    # Return JSON with structure
+    cql_query = retrieval_data_from_kg(query)
+    response=fetch_from_neo4j(cql_query['cql_query'])
     result = {
         "tool": "query_knowladge_graph_tool",
         "input": query,
@@ -29,14 +31,16 @@ def query_knowladge_graph_tool(query: str, user_id: str,session_id:str) -> str:
 
 @tool(
     name_or_callable="query_vector_db_tool",
-    description= """Retrieves relevant information or contextual answers from the user's stored knowledge base 
-                    Based on a natural language query.Use this tool when the query asks about Ayurvedic concepts and ask from any document (e.g., PDF, Excel, Word). """
+    description= """Retrieves relevant contextual information from the **user’s stored knowledge base or uploaded documents** 
+    using semantic vector search (Qdrant). 
+    Use this tool when the query asks about **conceptual explanations, theories, or textual insights** 
+    that come from documents such as PDFs, Excel files, or notes — not from structured graph relationships. """
 
 )
-def query_vector_db_tool(query: str, user_id: str,session_id:str) -> str:
+def query_vector_db_tool(query: str) -> str:
     """Detect document type mentioned in a user's query."""
     try:
-        collection_name= user_id+"_"+session_id
+        collection_name = "1234" + "_" + "abcde345"
         collections_response = client.get_collections()
         all_collection_names = [c.name for c in collections_response.collections]
         if collection_name not in all_collection_names:
@@ -56,14 +60,15 @@ def query_vector_db_tool(query: str, user_id: str,session_id:str) -> str:
 
 @tool(
     name_or_callable="hybrid_retrival_tool",
-    description="""Combines knowledge graph reasoning and vector-based retrieval to provide comprehensive answers
-                   that integrate traditional Ayurvedic relationships with modern scientific context.
-                   Use this tool when the query involves both structured relationships (like herbs, diseases, or doshas) and contextual knowledge (like research findings or textual explanations).
-                   Examples include 'What herbs work for arthritis according to traditional and scientific knowledge?' or 'Which Ayurvedic herbs are scientifically validated for diabetes?'."""
+    description="""Combines **Knowledge Graph reasoning** and **Vector-based retrieval** to generate 
+    comprehensive answers that integrate both **traditional Ayurvedic knowledge** 
+    and **modern scientific context**.
+    Use this tool when the query requires **both structured relationships (from KG)** 
+    and **textual explanations or scientific references (from Vector DB)**."""
 )
-def hybrid_retrival_tool(query: str, user_id: str,session_id:str)->str:
+def hybrid_retrival_tool(query: str)->str:
     try:
-        collection_name = user_id + "_" + session_id
+        collection_name = "1234" + "_" + "abcde345"
         collections_response = client.get_collections()
         all_collection_names = [c.name for c in collections_response.collections]
         if collection_name not in all_collection_names:
@@ -91,9 +96,6 @@ def hybrid_retrival_tool(query: str, user_id: str,session_id:str)->str:
 # def general_purpose_tool(query:str)->str:
 #     """General reasoning using LLM without retrieval."""
 #     return llm.invoke(query)
-
-
-
 
 
 intent_tools=[query_knowladge_graph_tool,query_vector_db_tool,hybrid_retrival_tool]
