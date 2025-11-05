@@ -1,9 +1,9 @@
-from sqlalchemy import Column, Integer, String, Text, TIMESTAMP, BLOB, Boolean, BigInteger,func,JSON,Enum
+from sqlalchemy import Column, Integer, String, Text, TIMESTAMP, LargeBinary, Boolean, BigInteger,func,JSON,Enum, MetaData
 from sqlalchemy.dialects.mysql import VARCHAR
 from sqlalchemy.orm import declarative_base
+from db.connection import engine
 import enum
 Base = declarative_base()
-
 
 class RoleEnum(str, enum.Enum):
     user = "user"
@@ -29,10 +29,8 @@ class Documents(Base):
     user_id = Column(String(50), nullable=False)
     session_id = Column(String(50), nullable=False)
     filename = Column(String(255))
-    file_data = Column(BLOB, nullable=False)
+    file_data = Column(LargeBinary, nullable=False)
     created_at = Column(TIMESTAMP, server_default=func.now())
 
 
-
-
-
+# Base.metadata.create_all(engine)

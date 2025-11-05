@@ -60,7 +60,6 @@ engine = sqlalchemy.create_engine(
     future=True,
     echo=False
 )
+
+
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-
-

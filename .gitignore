@@ -4,8 +4,33 @@
 # Python cache files
 __pycache__/
 *.pyc
-
+.python-version
+uv.lock
 # Virtual environment
 venv/
 env/
 configuration/
+.envrc
+
+# requirements
+requirements-dev.txt
+
+# To update the requirements.txt via uv
+# uv pip compile pyproject.toml --output-file requirements.txt --no-deps --no-annotate --no-header
+
+# postgres docker connection URL.
+# docker run --name local-postgres \
+#   -e POSTGRES_USER=postgres \
+#   -e POSTGRES_PASSWORD=postgres \
+#   -p 5432:5432 \
+#   -d postgres
+
+# Neo4j for knowlegde Graph
+# docker run \
+#   -d \
+#   --name neo4j \
+#   -p7474:7474 -p7687:7687 \
+#   -e NEO4J_AUTH=neo4j/password123 \
+#   neo4j:latest
+
+
