@@ -17,7 +17,7 @@ def query_response(query,session_id,user_id):
     "tool": intent_tools,
     "llm": chat_openai() })
 
-    print("eeeeeeeewewewewewewweewewew",str(response['intent_result']))
+    print("eeeeeeeewewewewewewweewewew",str(response))
     message_sys_id = uuid.uuid4()
     result={"message":query,
             "message_sys_id":str(message_sys_id),

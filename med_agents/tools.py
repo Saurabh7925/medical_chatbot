@@ -20,6 +20,7 @@ import json
 def query_knowladge_graph_tool(query: str) -> str:
 
     cql_query = retrieval_data_from_kg(query)
+
     response=fetch_from_neo4j(cql_query['cql_query'])
     result = {
         "tool": "query_knowladge_graph_tool",
@@ -27,6 +28,7 @@ def query_knowladge_graph_tool(query: str) -> str:
         "output": cql_query,
         "result": response
     }
+    print("result -----------> ",result)
     return json.dumps(result, indent=2)
 
 @tool(

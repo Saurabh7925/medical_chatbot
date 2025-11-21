@@ -67,10 +67,10 @@ def fetch_from_neo4j(cql_query):
 
 
 if __name__ == "__main__":
-    query="Which dosha is imbalanced in insomnia?"
-    response=retrieval_data_from_kg(query)
-    query="""MATCH (d:Disease {name: "Insomnia"})-[:RELATED_DOSHA]->(do:Dosha) RETURN DISTINCT do.name AS dosha_name """
-    res=fetch_from_neo4j(response['cql_query'])
+    # query="Which dosha is imbalanced in insomnia?"
+    # response=retrieval_data_from_kg(query)
+    query="""MATCH (d:Disease {name: 'Diabetes'})-[:TREATED_WITH]->(h:Herb) RETURN DISTINCT h.name AS herb_name"""
+    res=fetch_from_neo4j(query)
     print(res)
 
 
